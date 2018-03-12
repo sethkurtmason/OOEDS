@@ -1,0 +1,13 @@
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "evaluation-type": "Lorem",
+    "activity": ObjectId("507f1f77bcf86cd799439011"),
+    "entity": ObjectId("507f1f77bcf86cd799439011"),
+    "property": ObjectId("507f1f77bcf86cd799439011"),
+    "measurement-context": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ],
+    "permissions": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ]
+}

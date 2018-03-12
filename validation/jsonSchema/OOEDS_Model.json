@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A Model aggregates one or more Evaluations to create a logical grouping of data. A Model is a type of Evaluation",
+  "$comment": "A Model aggregates one or more Evaluations to create a logical grouping of data. A Model is a special type of Evaluation, which implies that a given data aggregation is potentially a tier in a composition (or holonic) hierarchy of Evaluations. Most researchers choose to think about, collect, and organize data sets rather than track long lists of data independently. Furthermore, a given Model represents a holon in a hierarchy, meaning it is composed of simpler evaluation structures (lower-tier holons) and is potentially a component of a more complex evaluation structure (higher-tier holon).",
+  "allOf" : [
+    { "$ref": "./OOEDS_Evaluation.json" },
+    { "properties": {
+        "model-type": {
+          "description": "The type of organizational schema or classification used to aggregate Evaluations",
+          "type": "string"
+          },
+        "model-definition": {
+          "description": "The description of the aggregated Evaluations",
+          "type": "string" },
+        "evaluation-series":{
+          "description": "The unordered list of Evaluations contained in the Model",
+            "type": "array",
+            "items": { "$ref": "./OOEDS_Evaluation.json" }
+          }
+      },
+      "required": ["model-type", "model-definition", "evaluation-series"]
+    }
+  ]
+}

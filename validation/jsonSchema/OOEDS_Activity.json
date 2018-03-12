@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "An Activity procures or generates one or more Evaluations",
+    "comment": "An action that generates a given datum. An Activity may describe field collection campaigns, automated instrument deployments, instrument calibrations, data analysis workflows, data derivations, model simulations, censoring actions, etc. An Activity may be related to one or more associated Activities. As such, Activities are organized into a graph data structure representing a network. While our abstract design depicts an undirected graph, the self-referencing relationship could be implemented as composition, which would allow activities to be organized in a directed graph representing a composition hierarchy. The ability to track composition or network relationships among Activities is useful for tying detailed and, potentially, evolving provenance information directly to an Evaluation.",
+    "properties": { 
+      "activity-name": {
+        "description": "The description of the Activity that produced one or more Evaluations",
+        "type": "string"
+        },
+      "activity-description": {
+        "description": "The unambiguous description of the Activity",
+        "$comment": "This may include published methodologies, DOIs, links to publications, etc. Most implementation will use 1:1 or many:1 relationships between activity-name:activity-description.",
+        "type": "string"
+        },
+      "agent": {
+        "description": "The indivudual(s) or organization(s) primarily responsible for some action",
+        "$comment": "An Activity may be executed by an Agent. An Agent may describe researchers, field technicians, contractors, universities, government entities, state agencies, etc. This relationship is useful for tracking who performed a given task related to data acquisition, validation, derivation, etc. The “who” involved in a given activity is often an important consideration when assessing data quality or when seeking to resolve outstanding questions regarding some aspect of the data or metadata record. An Agent may be related to one or more Agents. As with activities, this may be implemented as either a directed or undirected graph, allowing either a composition or network perspective. This structure provides a means for identifying the human, organizational, or business relationships that exist between groups or individuals involved in data collection, management and analysis.",
+        "type": "array",
+        "items": { "$ref": "./OOEDS_Agent.json" }
+      },
+      "parent-activity": {
+        "description": "The parent Activity under which this Activity is heirarchically nested",
+        "$comment": "Used for activities organized in a directed graph structure.",
+        "type": "object",
+        "$ref": "#"
+        },
+      "affiliated-activities": {
+        "description": "The parent Activity under which this Activity is heirarchically nested",
+        "$comment": "Used for activities organized in an un-directed graph structure.",
+        "type": "array",
+        "items": { "$ref": "#" }
+        }
+    },
+    "required": ["activity-name", "agent"] 
+}

@@ -1,0 +1,12 @@
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "agent-type": "Lorem",
+    "agent-name": "Lorem",
+    "agent-phone": "(123)456-7890",
+    "agent-email": "sample@email.com",
+    "agent-address": "Lorem",
+    "parent-agent": ObjectId("507f1f77bcf86cd799439011"),
+    "network-agent": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ]
+}

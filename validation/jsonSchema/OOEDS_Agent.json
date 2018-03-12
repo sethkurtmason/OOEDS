@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "An Agent may be an individual, an organization, a company, a government, etc.",
+    "$comment": "An Agent may be related to one or more Agents. As with activities, this may be implemented as either a directed or undirected graph, allowing either a composition or network perspective. This structure provides a means for identifying the human, organizational, or business relationships that exist between groups or individuals involved in data collection, management and analysis.",
+    "type": "object",
+    "properties": {
+      "agent-name": {
+        "description": "The name of the individual, organization, etc.",
+        "type": "string"
+        },
+      "agent-phone": {
+        "description" : "Contact telephone number for the Agent",
+        "type": "string"
+        },
+      "agent-address": {
+        "description": "Contact address for the Agent",
+        "type": "string"
+        },
+      "agent-email": {
+        "description": "Contact email address for the Agent",
+        "type": "string"
+        },
+      "parent-agent": {
+        "description": "The Agent under which this Agent is heirarchically nested",
+        "type": "object",
+        "$ref": "#" 
+        },
+      "affiliated-agents" :{
+        "description": "The non-heirarchical network of Agents this Agent is associated with.",
+        "type": "array",
+        "items": { "$ref": "#" }
+        }
+    },
+    "required": ["agent-name", "agent-phone", "agent-address", "agent-email"] 
+}

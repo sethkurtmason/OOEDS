@@ -1,0 +1,5 @@
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "permission-type": "read, readWrite",
+    "permission-agent": ObjectId("507f1f77bcf86cd799439011")
+}

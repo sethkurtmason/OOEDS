@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "The characteristic of an Entity subjected to measurement or observation",
+    "properties": {
+      "property-name": {
+        "description": "The unambiguous name for the property",
+        "#comment": "May be derived from a controlled vocabulary",
+        "type": "string"
+        },
+      "property-dimensions": {
+        "description": "The dimensions(s) associated with the property (e.g. length, time, mass/time)",
+        "#comment": "May be derived from a controlled vocabulary",
+        "type": "string"
+        }
+    },
+    "required": ["property-name", "property-dimensions"]
+}

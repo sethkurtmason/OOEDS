@@ -1,0 +1,13 @@
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "activity-type": "Lorem",
+    "activity-name": "Lorem",
+    "activity-description": "Lorem",
+    "agent": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ],
+    "parent-activity": ObjectId("507f1f77bcf86cd799439011"),
+    "network-activity": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ]
+}

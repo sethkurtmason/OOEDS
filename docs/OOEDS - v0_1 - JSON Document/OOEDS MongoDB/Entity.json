@@ -1,0 +1,10 @@
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "entity-type": "Lorem",
+    "entity-name": "Lorem",
+    "entity-description": "Lorem",
+    "parent-entity": ObjectId("507f1f77bcf86cd799439011"),
+    "network-entity": [
+        ObjectId("507f1f77bcf86cd799439011")
+    ]
+}

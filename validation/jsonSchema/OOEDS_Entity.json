@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "The object or phenomena subjected to observation or measurement.",
+  "$comment": "A real-world object or phenomena, either conceptual or literal, subjected to an Evaluation. Entities may describe physical components of a landscape (e.g. soil), individual organisms (e.g. a pit-tagged fish), cadastral features (e.g. private property bounds), named geographic locations (e.g. study sites), conceptual environmental components, etc. An Entity may be related to one or more Entities. As with Activities, this may be implemented as either a directed or undirected graph, allowing either a composition or network perspective. The ability to track compositional hierarchies or network relationships among Entities is useful for understanding the nested relationships between geographic (e.g. climatic region), cadastral (e.g. property ownership), physical (e.g. soil), or biological (e.g. taxonomies) Entities.",
+  "properties": {
+    "entity-name": {
+      "description": "The unique name for the Entity",
+      "#comment": "May be derived from a controlled vocabulary",
+      "type": "string"
+      },
+    "entity-type": {
+      "description": "The Entity type (e.g. soil, water, air, etc.)",
+      "$comment": "The specific Entity sub-class that inherits properties from the abstract Entity. Most implementation will use 1:1 relationships between entity-name:entity-type.",
+      "type": "string"
+      },
+    "entity-description": {
+      "description": "The unambiguous description of the Entity type",
+      "$comment": "Most implementation will use 1:1 relationships between entity-name:entity-description.",
+      "type": "string"
+      },
+    "parent-entity": {
+      "description": "The parent Entity under which this Entity is heirarchically nested",
+      "#comment": "Used in cases of directed graph networks",
+      "type": "object",
+      "$ref": "#" 
+      },
+    "affiliated-entities": {
+      "description": "The non-heriarchical network of Entities of which this Entity is a part",
+      "#comment": "Used in cases of undirected graph networks",
+      "type": "array",
+      "items": { "$ref": "#" }
+      }
+  },
+  "required": ["entity-name", "entity-type", "entity-description"]
+}
